@@ -1,4 +1,5 @@
 #Code for Random Forests Algorithm in R
+#You may run this code for yourself in R Studio
 library(readr)
 df = read.csv('KNMData_Final.csv')
 library(caTools)
