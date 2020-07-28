@@ -1,0 +1,14 @@
+library(readr)
+df = read.csv('KNMData_Final.csv')
+library(caTools)
+set.seed(123)
+split = sample.split(df, SplitRatio = .8)
+training_set = subset(df, split == TRUE)
+test_set = subset(df, split == FALSE)
+library(randomForest)
+regressor = randomForest(x = training_set, y = training_set$Sales, ntree = 10)
+regressor$rsq
+y_pred = predict(regressor, test_set)
+y_mae = mean(abs(y_pred-test_set$Sales))
+y_mae
+
